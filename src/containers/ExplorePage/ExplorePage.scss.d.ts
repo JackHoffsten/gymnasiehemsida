@@ -2,6 +2,7 @@ export const backgroundImage: string;
 export const container: string;
 export const backgroundText: string;
 export const title: string;
+export const searchField: string;
 export const dropdowns: string;
 export const searchContainer: string;
 export const search: string;

@@ -1,8 +1,28 @@
 .box {
   background-color: #888;
-  min-height: 10em;
   margin: 5px;
   text-align: start;
+  cursor: pointer;
+}
+
+.box:hover {
+  background-color: #999;
+}
+
+.studioFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.studioText {
+  display: flex;
+  margin-top: 0.5em;
+}
+
+.studioImage {
+  width: 15em;
+  height: 15em;
+  margin: 0.5em;
 }
 
 .studioName {
@@ -10,5 +30,24 @@
   color: #000;
 }
 
+.rating {
+  margin-right: 0.5em;
+}
+
+.studioMap {
+  height: 30em;
+  margin: 0.5em;
+}
+
 .showMore {
+  display: flex;
+  justify-content: center;
+}
+
+.showMoreText {
+  text-decoration: underline;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  color: #666;
 }

@@ -24,8 +24,13 @@
   font-size: 4.5em;
 }
 
+.searchField {
+  display: flex;
+  flex-direction: column;
+}
+
 .dropdowns {
-  padding-top: 30px;
+  padding-top: 1.5em;
 }
 
 .searchContainer {
