@@ -88,7 +88,7 @@ interface State {
   country: string;
   city: string;
   style: string;
-  searchResult: Studio[];
+  searchResult: Studio[] | null;
 }
 
 export class ExplorePage extends React.Component<{}, State> {
@@ -100,14 +100,14 @@ export class ExplorePage extends React.Component<{}, State> {
       country: '',
       city: '',
       style: '',
-      searchResult: []
+      searchResult: null
     };
 
     this.onChangeSearchString = this.onChangeSearchString.bind(this);
     this.onChangeCountry = this.onChangeCountry.bind(this);
     this.onChangeCity = this.onChangeCity.bind(this);
     this.onChangeStyle = this.onChangeStyle.bind(this);
-    this.onClickSearchBtn = this.onClickSearchBtn.bind(this);
+    this.onSearch = this.onSearch.bind(this);
     this.onKeyDownInput = this.onKeyDownInput.bind(this);
   }
 
@@ -119,10 +119,10 @@ export class ExplorePage extends React.Component<{}, State> {
       <div className={styles.backgroundImage}>
         <div className={styles.container}>
           <div className={styles.backgroundText}>
-            <h1 className={styles.title}>Explore</h1>
             <div className={styles.searchField}>
-              <div className={styles.dropdowns}>
+              <div className={styles.searchFlexBox}>
                 <select
+                  className={styles.dropdown}
                   name="country"
                   id="country"
                   value={country}
@@ -137,6 +137,7 @@ export class ExplorePage extends React.Component<{}, State> {
                   <option value="russia">Russia</option>
                 </select>
                 <select
+                  className={styles.dropdown}
                   name="cities"
                   id="cities"
                   value={city}
@@ -148,6 +149,7 @@ export class ExplorePage extends React.Component<{}, State> {
                   ))}
                 </select>
                 <select
+                  className={styles.dropdown}
                   name="styles"
                   id="styles"
                   value={style}
@@ -156,28 +158,23 @@ export class ExplorePage extends React.Component<{}, State> {
                   <option value="">Choose style</option>
                   <option value="blackand gray">Black-and-gray</option>
                 </select>
+                <input
+                  className={styles.searchBox}
+                  type="text"
+                  value={searchString}
+                  onChange={this.onChangeSearchString}
+                  onKeyDown={this.onKeyDownInput}
+                />
+                <button className={styles.searchBtn} onClick={this.onSearch}>
+                  S
+                </button>
               </div>
-              <div className={styles.searchContainer}>
-                <div className={styles.search}>
-                  <input
-                    className={styles.searchBox}
-                    type="search"
-                    value={searchString}
-                    onChange={this.onChangeSearchString}
-                    onKeyDown={this.onKeyDownInput}
-                  />
-                  <button
-                    className={styles.searchBtn}
-                    onClick={this.onClickSearchBtn}
-                  >
-                    Search
-                  </button>
-                </div>
-                <div className={styles.results}>
-                  {searchResult.map(sr => (
-                    <ExploreResult studio={sr} />
-                  ))}
-                </div>
+              <div className={styles.results}>
+                {searchResult && searchResult.length === 0 && (
+                  <p>No results.</p>
+                )}
+                {searchResult &&
+                  searchResult.map(sr => <ExploreResult studio={sr} />)}
               </div>
             </div>
           </div>
@@ -205,11 +202,11 @@ export class ExplorePage extends React.Component<{}, State> {
   public onKeyDownInput(event: React.KeyboardEvent<HTMLInputElement>) {
     const { key } = event;
     if (key === 'Enter') {
-      this.onClickSearchBtn();
+      this.onSearch();
     }
   }
 
-  public onClickSearchBtn() {
+  public onSearch() {
     const { city, country, searchString, style } = this.state;
     if (city === '' && country === '' && searchString === '' && style === '') {
       this.setState({ searchResult: [] });

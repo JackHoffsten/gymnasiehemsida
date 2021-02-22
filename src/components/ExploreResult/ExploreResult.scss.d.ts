@@ -3,6 +3,7 @@ export const studioFlex: string;
 export const studioText: string;
 export const studioImage: string;
 export const studioName: string;
+export const studioWebsite: string;
 export const rating: string;
 export const studioMap: string;
 export const showMore: string;

@@ -39,7 +39,9 @@ export class ExploreResult extends React.Component<Props, State> {
             </div>
             <div>
               <h1 className={styles.studioName}>{studio.name}</h1>
-              <p>{studio.website}</p>
+              <a className={styles.studioWebsite} href={studio.website}>
+                {studio.website}
+              </a>
               <p>
                 {studio.street}, {studio.area}, {studio.city}, {studio.country}
               </p>

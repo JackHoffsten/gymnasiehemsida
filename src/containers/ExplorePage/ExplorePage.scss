@@ -1,5 +1,5 @@
 .backgroundImage {
-  height: /*100%*/ 1200px;
+  height: 100%;
   /*background-image: url("../images/temp-image.jpeg");*/
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,47 +19,55 @@
   padding-top: 100px;
 }
 
-.title {
-  font-weight: bold;
-  font-size: 4.5em;
-}
-
 .searchField {
   display: flex;
   flex-direction: column;
+  max-width: 70em;
+  margin: auto;
 }
 
-.dropdowns {
-  padding-top: 1.5em;
+.searchFlexBox {
+  display: flex;
+  align-items: center;
+  background-color: #888;
+  height: 4em;
+  padding: 0 0.5em;
+  border-radius: 0.25em;
 }
 
-.searchContainer {
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: auto;
-  padding: 0 40px;
-}
-
-.search {
-  padding: 10px;
+.dropdown {
+  height: 3em;
+  width: 10em;
+  margin: 0.5em;
+  font-weight: bold;
+  border-radius: 0.25em;
+  border: none;
+  cursor: pointer;
 }
 
 .searchBox {
-  width: 50em;
-  height: 2.5em;
+  height: 2.4em;
+  font-size: 1em;
+  flex-grow: 20;
+  margin: 0.5em;
+  outline: none;
+  border: none;
+  border-radius: 0.25em;
 }
 
 .searchBtn {
-  width: 5em;
-  height: 2.5em;
-  font-weight: bold;
+  height: 3em;
+  min-width: 3em;
+  margin: 0.5em;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
 
 .results {
   display: flex;
   flex-direction: column;
   margin-top: 2em;
-  background-color: #666;
 }
 
 .result {
