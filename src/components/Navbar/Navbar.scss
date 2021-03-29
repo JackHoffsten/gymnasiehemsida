@@ -1,16 +1,16 @@
 .navbar {
-  background-color: #000;
+  position: fixed;
   color: #fff;
-  height: 4em;
   width: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
+  //box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 100em;
   margin: 0 auto;
   overflow: auto;
   padding: 0 40px;
@@ -21,9 +21,17 @@
 }
 
 .logo {
-  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  font-size: 3em;
   color: #fff;
   text-decoration: none;
+}
+
+.logoArt {
+  margin-right: 0.3em;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(108deg)
+    brightness(104%) contrast(101%);
 }
 
 .pages {
@@ -32,19 +40,31 @@
 }
 
 .navlink {
+  display: inline-block;
   color: #fff;
-  font-size: 1.5em;
-  font-weight: bold;
-  padding: 5px;
-  margin: 0 15px;
+  font-size: 2em;
+  margin: 0 0.75em;
   text-decoration: none;
 }
 
-.navlink:hover {
-  border-bottom: 3px #fff solid;
+.navlink::after {
+  content: '';
+  display: block;
+  height: 0.1em;
+  transform: scaleX(0);
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.4, 1);
+  background-color: #fff;
+}
+
+.navlink:hover::after {
+  transform: scaleX(1);
 }
 
 .activeNavlink {
-  composes: navlink;
-  border-bottom: 3px #fff solid;
+  display: inline-block;
+  color: #fff;
+  font-size: 2em;
+  margin: 0 0.75em;
+  text-decoration: none;
+  border-bottom: 0.1em #fff solid;
 }

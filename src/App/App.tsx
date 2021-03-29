@@ -5,8 +5,11 @@ import { Route, Switch, Redirect, BrowserRouter, Link } from 'react-router-dom';
 
 import { StartPage } from 'containers/StartPage/StartPage';
 import { ExplorePage } from 'containers/ExplorePage/ExplorePage';
+import { AboutPage } from 'containers/AboutPage/AboutPage';
+import { ContactPage } from 'containers/ContactPage/ContactPage';
 
 import { Navbar } from 'components/Navbar/Navbar';
+import { Footer } from 'components/Footer/Footer';
 
 export class App extends React.Component {
   public render() {
@@ -21,8 +24,11 @@ export class App extends React.Component {
           <Switch>
             <Route path="/" component={StartPage} exact={true} />
             <Route path="/explore" component={ExplorePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/contact" component={ContactPage} />
           </Switch>
         </div>
+        <Footer />
       </BrowserRouter>
     );
   }

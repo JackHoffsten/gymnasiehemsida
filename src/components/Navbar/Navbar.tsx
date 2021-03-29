@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import * as styles from './Navbar.scss';
 
+import logo from './logga_gymnasiearbete.svg';
+
 interface Props extends RouteComponentProps {}
 
 class NavbarComp extends React.Component<Props> {
@@ -12,7 +14,8 @@ class NavbarComp extends React.Component<Props> {
       <div className={styles.navbar}>
         <div className={styles.container}>
           <Link className={styles.logo} to="/">
-            Tattoo Website
+            <img className={styles.logoArt} src={logo} width={45} height={60} />
+            GaddFinder
           </Link>
           <nav>
             <ul className={styles.pages}>

@@ -9,14 +9,9 @@ export class StartPage extends React.Component {
       <div className={styles.backgroundImage}>
         <div className={styles.container}>
           <div className={styles.backgroundText}>
-            <h1 className={styles.title}>Welcome</h1>
             <h2 className={styles.text}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse molestie eros in sapien mollis laoreet. Vestibulum
-              lobortis hendrerit euismod. Curabitur sit amet velit leo. Aenean
-              id ipsum facilisis, varius neque quis, facilisis eros. Phasellus
-              id sapien justo. Morbi gravida justo nisi, sed cursus ipsum luctus
-              in. Nunc egestas erat eu dui ultrices accumsan.
+              We help you explore and find the right studio and artist for your
+              tattoos.
             </h2>
             <Link className={styles.exploreText} to="/explore">
               EXPLORE

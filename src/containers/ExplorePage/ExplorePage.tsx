@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import * as styles from './ExplorePage.scss';
 
+import searchIcon from './search_black_24dp.svg';
+
 import { ExploreResult } from 'components/ExploreResult/ExploreResult';
 
 const cities: Map<string, string[]> = new Map<string, string[]>([
@@ -68,6 +70,17 @@ const studios: Studio[] = [
     styles: ['New school', 'Black and gray'],
     employees: ['Kaspar', 'Sten', 'Johan'],
     rating: 4.8
+  },
+  {
+    name: 'Bear Tattoo',
+    website: 'beartattoo.ru',
+    street: 'Vodka Street 40',
+    area: 'Moskva',
+    city: 'Moskva',
+    country: 'Russia',
+    styles: ['Black and gray'],
+    employees: ['Kasporov', 'Garry', 'Boshka'],
+    rating: 4.3
   }
 ];
 
@@ -118,64 +131,64 @@ export class ExplorePage extends React.Component<{}, State> {
     return (
       <div className={styles.backgroundImage}>
         <div className={styles.container}>
-          <div className={styles.backgroundText}>
-            <div className={styles.searchField}>
-              <div className={styles.searchFlexBox}>
-                <select
-                  className={styles.dropdown}
-                  name="country"
-                  id="country"
-                  value={country}
-                  onChange={this.onChangeCountry}
-                >
-                  <option value="">Choose country</option>
-                  <option value="sweden">Sweden</option>
-                  <option value="norway">Norway</option>
-                  <option value="denmark">Denmark</option>
-                  <option value="finland">Finland</option>
-                  <option value="iceland">Iceland</option>
-                  <option value="russia">Russia</option>
-                </select>
-                <select
-                  className={styles.dropdown}
-                  name="cities"
-                  id="cities"
-                  value={city}
-                  onChange={this.onChangeCity}
-                >
-                  <option value="">Choose city</option>
-                  {selectedCities.map(c => (
-                    <option value={c}>{c}</option>
-                  ))}
-                </select>
-                <select
-                  className={styles.dropdown}
-                  name="styles"
-                  id="styles"
-                  value={style}
-                  onChange={this.onChangeStyle}
-                >
-                  <option value="">Choose style</option>
-                  <option value="blackand gray">Black-and-gray</option>
-                </select>
-                <input
-                  className={styles.searchBox}
-                  type="text"
-                  value={searchString}
-                  onChange={this.onChangeSearchString}
-                  onKeyDown={this.onKeyDownInput}
-                />
-                <button className={styles.searchBtn} onClick={this.onSearch}>
-                  S
-                </button>
-              </div>
-              <div className={styles.results}>
-                {searchResult && searchResult.length === 0 && (
-                  <p>No results.</p>
-                )}
-                {searchResult &&
-                  searchResult.map(sr => <ExploreResult studio={sr} />)}
-              </div>
+          <div className={styles.searchField}>
+            <div className={styles.searchFlexBox}>
+              <select
+                className={styles.dropdown}
+                name="country"
+                id="country"
+                value={country}
+                onChange={this.onChangeCountry}
+              >
+                <option value="">Choose country</option>
+                <option value="sweden">Sweden</option>
+                <option value="norway">Norway</option>
+                <option value="denmark">Denmark</option>
+                <option value="finland">Finland</option>
+                <option value="iceland">Iceland</option>
+                <option value="russia">Russia</option>
+              </select>
+              <select
+                className={styles.dropdown}
+                name="cities"
+                id="cities"
+                value={city}
+                onChange={this.onChangeCity}
+              >
+                <option value="">Choose city</option>
+                {selectedCities.map(c => (
+                  <option value={c}>{c}</option>
+                ))}
+              </select>
+              <select
+                className={styles.dropdown}
+                name="styles"
+                id="styles"
+                value={style}
+                onChange={this.onChangeStyle}
+              >
+                <option value="">Choose style</option>
+                <option value="black and gray">Black-and-gray</option>
+                <option value="new school">New school</option>
+                <option value="realistic">Realistic</option>
+              </select>
+              <input
+                className={styles.searchBox}
+                type="text"
+                value={searchString}
+                onChange={this.onChangeSearchString}
+                onKeyDown={this.onKeyDownInput}
+              />
+              <button className={styles.searchBtn} onClick={this.onSearch}>
+                <img src={searchIcon} />
+              </button>
+            </div>
+            <div className={styles.results}>
+              {searchResult && searchResult.length === 0 && (
+                <p className={styles.noResults}>No results.</p>
+              )}
+              {searchResult &&
+                searchResult.map(sr => <ExploreResult studio={sr} />)}
             </div>
           </div>
         </div>

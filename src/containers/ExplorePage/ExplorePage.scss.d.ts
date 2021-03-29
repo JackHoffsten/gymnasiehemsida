@@ -7,4 +7,5 @@ export const dropdown: string;
 export const searchBox: string;
 export const searchBtn: string;
 export const results: string;
+export const noResults: string;
 export const result: string;
